@@ -45,9 +45,12 @@ hystrix will automatically call the fallback method.
 			<artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
 		</dependency>
 ```
+
+* Need to annotate **@EnableHystrixDashboard** in the springboot main class.
+
 ### Hystrix Dashboard URL ###
 
-http://<hostname>:<port>/hystrix
+http://hostname:port/hystrix
 
 ![hystrix-dashboard-start.png](hystrix-dashboard-start.png)
 

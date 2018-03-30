@@ -2,6 +2,12 @@
 
 This project explains how hystrix works with simple example
 
+## What is Hystrix ##
+
+Enter what Netflix has created: Hystrix. Hystrix is a Java library aimed towards making integration points less susceptible to failures and mitigating the impact a failure might have on your application. It provides the means to incorporate bulkheads, circuit breakers and metrics into your framework. Those not familiar with these concepts should read the book I mentioned earlier. For example, a circuit breaker makes sure that if a certain integration point is having trouble, your application will not be affected. If for example a integration point takes 20 seconds to reply instead of the normal 50ms, you can configure a circuit breaker that trips if 10 calls within 10 seconds take longer than 5 seconds. When tripped, you can configure a quick fallback or fail fast.
+
+Hystrix has an elegant solution for this. Every command to an external integration point should get wrapped in a HystrixCommand. HystrixCommand provide support for circuit breakers, timeouts, fallbacks and other disaster recovery methods. So instead of directly calling the integration point, you’ll call a command that in turn calls the integration point. Hystrix also allows you to choose whether you want to do this synchronously or asynchronously (returning a Future).
+
 ## Hystrix Implementation ##
 
 ### Rest Method -1 ###
